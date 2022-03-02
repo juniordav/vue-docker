@@ -1,0 +1,12 @@
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+    vue-service: # The name of the service
+      container_name: vuecontainer  # Container name
+      build: .
+      volumes: # Volume binding
+       - './vue-docker:/usr/src/app' 
+      working_dir: /usr/src/app/vue-docker/vue-docker
+      ports: 
+        - '8080:8080' # Port mapping
+      command: > 
+        bash -c "npm run serve"
